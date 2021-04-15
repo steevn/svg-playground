@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Not required for demo, only for prettifying -->
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+    <!-- ~~~~ -->
+
+    <style>
+      /* Color variables
+       * for convenience
+       * ~~~~
+       */
+      :root {
+        --blue: cornflowerblue;
+        --gray: slategray;
+        --red: tomato;
+        --white: floralwhite;
+      }
+      /* ~~~~ */
+
+      html { 
+        background-color: var(--white); 
+      }
+      body { 
+        color: var(--white); 
+        margin: 0; 
+      }
+      .section {
+        display: inline-grid; 
+        width: 100%;
+      }
+      .svg {
+        height: 72px;
+        width: 100%;
+      }
+      .blue {
+        background-color: var(--blue);
+        fill: var(--blue);
+      }
+      .gray {
+        background-color: var(--gray);
+        fill: var(--gray);
+      }
+      .red {
+        background-color: var(--red);
+        fill: var(--red);
+      }
+      .white {
+        background-color: var(--white);
+        fill: var(--white);
+      }
+
+      /* Unnecessary for the demo
+       * here just to prettify it
+       * ~~~~
+       */
+      body { 
+        font-family: 'Roboto Mono', monospace;
+        font-size: 0.85em;
+        line-height: 1.7em;
+      }
+      p { 
+        margin: 16px 16px;
+        text-align: justify;
+      }
+      @media only screen and (min-width:600px) {
+        body { 
+          font-size: 1em;
+        }
+        p {
+          margin: 32px;
+        }
+        p:first-child {
+          margin-top: 32px;
+        }
+        p:last-child {
+          margin-bottom: 32px;
+        }
+      }
+      @media only screen and (min-width:768px) {
+        p {
+          margin: 32px 64px;
+        }
+        p:first-child {
+          margin-top: 64px;
+        }
+        p:last-child {
+          margin-bottom: 64px;
+        }
+      }
+      /* ~~~~ */
+
+    </style>
+  </head>
+  <body>
+    <div class="section blue">
+      <div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed pharetra nibh. Sed ac dui commodo, maximus est id, imperdiet odio. Praesent pellentesque ex molestie est placerat, vitae volutpat nulla bibendum. Praesent at augue rutrum, mollis velit vitae, tristique ex. Mauris interdum, ligula sit amet aliquet ullamcorper, turpis tellus luctus metus, in vulputate dui nisi non ex. Duis mauris nibh, lacinia non imperdiet vitae, porta sed massa. Suspendisse non tristique est. Aliquam ac lobortis enim. Aenean posuere finibus luctus. Nam vitae ipsum ac est scelerisque lobortis. Donec eu lectus cursus, accumsan mauris quis, consequat felis. Praesent euismod, nunc suscipit maximus mattis, elit ligula pharetra augue, ut accumsan sapien risus id quam. Duis dignissim ante eget mauris pretium, sed condimentum nunc consectetur. Aenean arcu mauris, vehicula nec nulla ut, ornare facilisis leo. Suspendisse rhoncus augue eu placerat facilisis.
+        </p>
+      </div>
+      <svg class="svg red" preserveAspectRatio="none" viewBox="0 0 500 100" xmlns="http://www.w3.org/2000/svg">
+        <polygon class="blue" points="0,0 500,0 250,100" />
+      </svg>
+    </div>
+    <div class="section red">
+      <div>
+        <p>
+          Nullam ornare, quam id posuere hendrerit, lacus velit commodo ligula, vel tincidunt orci arcu vel risus. Cras semper egestas placerat. Nulla facilisi. Duis gravida ipsum ex, non hendrerit diam venenatis at. Proin egestas risus quis convallis viverra. Fusce porttitor rutrum neque quis semper. Nulla consequat libero quis feugiat vestibulum. Nam vitae dui ut lacus pretium tempor. Maecenas laoreet hendrerit ipsum eu ultrices. Integer ultricies malesuada varius. Cras convallis fringilla elit sed bibendum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;
+        </p>
+        <p>
+          Praesent eleifend tincidunt auctor. Pellentesque nec tortor turpis. Cras vel tincidunt nulla. Nullam ut justo ultricies, semper augue tristique, porta diam. Sed viverra nunc non erat sollicitudin, sed scelerisque risus luctus. Suspendisse nec venenatis nibh. Phasellus non sapien arcu. Etiam risus orci, suscipit vel lobortis in, tristique nec ligula.
+        </p>
+      </div>
+      <svg class="svg gray" preserveAspectRatio="none" viewBox="0 0 500 100" xmlns="http://www.w3.org//svg">
+        <polygon class="red" points="0,0 500,0 250,100" />
+      </svg>
+    </div>
+    <div class="section gray">
+      <div>
+        <p>
+          Donec commodo, ipsum et feugiat consequat, nibh ipsum commodo ante, ut sollicitudin lorem risus id sem. Aenean a elit nisl. Donec scelerisque est et mi consectetur, eu eleifend sapien volutpat. Nunc dignissim velit ut eros congue, cursus mattis lorem dictum. Integer ultricies nisi vitae diam semper, at pharetra arcu volutpat. Ut eget bibendum risus, at tincidunt mauris. Aliquam eu est lectus.
+        </p>
+        <p>
+          Curabitur blandit cursus erat, vel ullamcorper ligula consectetur sed. Vestibulum aliquet scelerisque finibus. Praesent in accumsan orci. In ac ultricies velit, a accumsan lorem. Curabitur vel sem semper, mollis ligula vel, elementum augue. Nulla tristique nunc metus, vitae mollis quam blandit vel. Suspendisse nec nulla lacinia, mollis mauris id, iaculis neque. Mauris eleifend vestibulum commodo.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

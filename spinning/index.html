@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+      /* Color variables
+       * for convenience
+       * ~~~~
+       */
+      :root {
+        --blue: cornflowerblue;
+        --gray: slategray;
+        --red: tomato;
+        --white: floralwhite;
+      }
+      /* ~~~~ */
+
+      html { 
+        background-color: var(--white); 
+      }
+      body {
+        margin: 0;
+      }
+      .container {
+        display: flex;
+        height: 100vh;
+      }
+      .svg {
+        height: 100%;
+        width: 100%;
+      }
+      .box {
+        fill: none;
+        stroke: var(--red);
+        stroke-width: 4px;
+      }
+
+      /* Animation stuff
+       * ~~~~
+       */
+      @keyframes rotate {
+        0% { 
+          stroke: var(--red);
+          transform: rotate(0deg);
+          transform-origin: center;
+        }
+        33% {
+          stroke: var(--blue);
+        }
+        66% {
+          stroke: var(--gray);
+        }
+        100% {
+          stroke: var(--red);
+          transform: rotate(360deg);
+          transform-origin: center;
+        }
+      }
+      .rotate {
+        animation: rotate 8s infinite linear;
+      }
+      /* ~~~~ */
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <svg class="svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+        <rect class="box rotate" x="100" y="100" width="300" height="300" />
+      </svg>
+    </div>
+  </body>
+</html>
