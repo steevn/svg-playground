@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+      /* Color variables
+       * for convenience
+       * ~~~~
+       */
+      :root {
+        --blue: cornflowerblue;
+        --gray: slategray;
+        --red: tomato;
+        --white: floralwhite;
+      }
+      /* ~~~~ */
+
+      html { 
+        background-color: var(--white); 
+      }
+      body {
+        margin: 0;
+      }
+      button {
+        height: 36px;
+        margin: auto 0;
+        margin-right: 16px;
+        width: 96px;
+      }
+      button:last-child {
+        margin-right: 0;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+      .controls {
+        display: flex;
+        flex-shrink: 0;
+        height: 75px;
+        justify-content: center;
+      }
+      .svg {
+        margin-top: 64px;
+        width: 100vw;
+      }
+      .node {
+        animation: appear 8s linear;
+        fill: var(--gray);
+        height: 50px;
+        width: 50px;
+      }
+      @keyframes appear {
+        0% { 
+          fill: var(--red);
+        }
+        50% {
+          fill: var(--blue);
+        }
+        100% {
+          fill: var(--gray);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="controls">
+        <button onclick="addNode()">Add Node</button>
+        <button onclick="clearNodes()">Clear Nodes</button>
+      </div>
+      <svg class="svg" viewBox="0 0 1024 768" xmlns="http://www.w3.org/2000/svg"></svg>
+    </div>
+
+    <script>
+      const NODE_SIZE = 66;
+      let svg;
+      let nodes = [];
+
+      window.onload = () => {
+        const svgs = document.getElementsByClassName("svg");
+        if (svgs.length === 0) {
+          console.error("Could not find the SVG element.");
+          return;
+        }
+        svg = svgs[0];
+      };
+
+      const nextNodeCoordinates = () => {
+        const center = 512;
+        const lastNode = nodes[nodes.length - 1];
+        // if first node
+        if (nodes.length == 0) {
+          return { x: center - NODE_SIZE / 2, y: 0 };
+        }
+        // if new row
+        // move to a new row when the total node count 
+        // is equal to a power of 2
+        else if (Math.sqrt(nodes.length) % 1 === 0) {
+          // how many nodes fit halfway on this row 
+          row = Math.sqrt(nodes.length);
+          const offset = (row * 2 - 1) / 2;
+          return {
+            x: center - offset * NODE_SIZE,
+            y: lastNode.y.baseVal.value + NODE_SIZE,
+          }
+        }
+        // new node, same row
+        else {
+          return {
+            x: lastNode.x.baseVal.value + NODE_SIZE,
+            y: lastNode.y.baseVal.value,
+          }
+        }
+      };
+
+      const addNode = () => {
+        const coords = nextNodeCoordinates();
+        var rect = document.createElementNS(svg.namespaceURI, 'rect');
+        rect.setAttribute("class", "node");
+        rect.setAttribute('x', coords.x);
+        rect.setAttribute('y', coords.y);
+        svg.appendChild(rect);
+        nodes.push(rect);
+      };
+
+      const clearNodes = () => {
+        nodes.forEach(node => svg.removeChild(node));
+        nodes = [];
+      };
+    </script>
+  </body>
+</html>
