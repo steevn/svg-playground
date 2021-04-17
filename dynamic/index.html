@@ -76,7 +76,9 @@
     </div>
 
     <script>
+      const CENTER = 512;
       const NODE_SIZE = 66;
+
       let svg;
       let nodes = [];
 
@@ -90,21 +92,20 @@
       };
 
       const nextNodeCoordinates = () => {
-        const center = 512;
         const lastNode = nodes[nodes.length - 1];
-        // if first node
+        // If first node
         if (nodes.length == 0) {
-          return { x: center - NODE_SIZE / 2, y: 0 };
+          return { x: CENTER - NODE_SIZE / 2, y: 0 };
         }
         // if new row
-        // move to a new row when the total node count 
-        // is equal to a power of 2
+        // move to a new row when the total node count is equal to
+        // a power of 2
         else if (Math.sqrt(nodes.length) % 1 === 0) {
           // how many nodes fit halfway on this row 
-          row = Math.sqrt(nodes.length);
+          const row = Math.sqrt(nodes.length) + 1;
           const offset = (row * 2 - 1) / 2;
           return {
-            x: center - offset * NODE_SIZE,
+            x: CENTER - offset * NODE_SIZE,
             y: lastNode.y.baseVal.value + NODE_SIZE,
           }
         }
